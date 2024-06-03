@@ -1,0 +1,150 @@
+Qu 1 - Write a shell script to display your LOGIN NAME and HOME directory.
+   Ans = #!/bin/bash   
+ echo "My Shell: $SHELL"
+ echo "My Name: $USER"
+  echo "My Home: $HOME"
+
+Qu 2 - Write a shell script to display menu like “1. Date, 2. Cal, 3. Ls, 4. Pwd, 5. Exit” and
+execute the commands depending on user choice.
+Ans  - 
+#!/bin/bash
+
+while true; do
+  echo "Menu:"
+  echo "1. Date"
+  echo "2. Cal"
+  echo "3. Ls"
+  echo "4. Pwd"
+  echo "5. Exit"
+  echo -n "Enter your choice [1-5]: "
+  read choice
+
+  case $choice in
+    1)
+      date
+      ;;
+    2)
+      cal
+      ;;
+    3)
+      ls
+      ;;
+    4)
+      pwd
+      ;;
+    5)
+      echo "Exiting..."
+      exit 0
+      ;;
+    *)
+      echo "Invalid choice. Please enter a number between 1 and 5."
+      ;;
+  esac
+  echo ""
+done
+
+
+
+Qu 3 -  Write a shell script to accept the name from the user and check whether user entered
+name is file or directory. If name is file display its size and if it is directory display its
+contents.
+
+Ans = 
+
+Qu 4 - Write a shell script to determine whether a given number is prime or not
+
+Ans = 
+
+
+Qu 5 - Write a Program to find the greatest of three numbers
+
+Ans = 
+   #!/bin/bash
+ # Write a shell script to determine whether greatest number among three numbers
+
+ echo "Enter Number 1"
+ read num1
+ echo "Enter Number 2"
+ read num2
+ echo "Enter Number 3"
+ read num3
+
+ if [ $num1 -gt $num2 -a $num1 -gt $num3 ]
+ then
+         echo "Num1 is greater than num2 and num3 $num1"
+ elif [ $num3 -gt $num1 -a $num3 -gt $num2 ]
+         then
+         echo "Num3 is greater than num1 and num2 $num1"
+ else
+         echo " Num2 is greater than num1 and num3 $num3"
+ fi
+
+
+ Qu 6 - Leap Year or NOT
+ 
+  #!/bin/bash
+
+  echo "Welcome to Our Programme"
+  echo -n "Enter Year : "
+  read year
+  if [ `expr $year % 4` -eq 0 -a `expr $year % 100` -ne 0 -o `expr $year % 400` -eq 0 ]
+  then
+	  echo "It is Leap Year"
+  else
+	  echo "Not Leap Year"
+  fi
+
+
+Qu 7 - Write a Program to find whether a given number is positive or negative
+   - #!/bin/bash 
+echo "Enter Number : "
+read num
+if [ $num -gt 0 ]
+then
+        echo "Number is Positve"
+elif [ $num -lt 0 ]
+then
+        echo "Number is Negative"
+else
+        echo "Number is Zero"
+fi 
+
+Qu 8 - Print the table
+ Ans = 
+    #!/bin/bash
+ # Prints thet table of user entered number
+ echo " Enter Number of Table you want to Print table"
+ read num
+ for((i=1; i<=10; i++))
+ do
+        res=`expr $num \* $i`
+        echo "$num * $i = $res" 
+ done
+~
+
+
+Qu 9 - Write a program to find the factorial of given number.
+
+Ans = #!/bin/bash
+echo "Enter the Number of Terms You want to Print the Fibonacii Series"
+read n
+num1=0
+num2=1
+echo "Print"
+echo -n $num1
+echo -n $num2
+
+
+for((i=0;i<n;i++))
+do
+        fb=$(($num1+$num2))
+        echo -n " $fb "
+        num1=$num2
+        num2=$fb
+done
+
+
+  
+
+
+
