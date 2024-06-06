@@ -122,8 +122,21 @@ Qu 8 - Print the table
  done
 ~
 
+Qu 9 -  Find Factorial of Number
+Ans = #!/bin/bash  
+echo "Enter the Number : "
+read num
+facto=1
+for((i=1;i<$num;i++))
+do
+        facto=$((facto * $i))
+done
+echo "Factorial of Given Numbers is : $facto"
 
-Qu 9 - Write a program to find the factorial of given number.
+
+
+
+Qu 11 - Write a program to find the Fibonacii of given number.
 
 Ans = #!/bin/bash
 echo "Enter the Number of Terms You want to Print the Fibonacii Series"
@@ -142,6 +155,20 @@ do
         num1=$num2
         num2=$fb
 done
+
+Qu 11 - . Write a program to calculate gross salary if the DA is 40%, HRA is 20% of basic salary.
+Accept basic salary form user and display gross salary (Result can be floating point
+value).
+Ans = 
+#!/bin/bash
+echo "Enter Your Salary : "
+read -p "Enter Your Salary Vroo : " salary
+da=$(echo "scale=2; $salary * 0.4" | bc)  # DA is 40% of basic salary
+hra=$(echo "scale=2; $salary * 0.2" | bc)
+
+echo "Gross Salary is : "
+gross=$(echo "scale=2; $salary + $da + $hra" | bc)
+echo "$gross"
 
 
   
