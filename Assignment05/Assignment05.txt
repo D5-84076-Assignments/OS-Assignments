@@ -1,12 +1,12 @@
 Qu 1 - Write a shell script to display your LOGIN NAME and HOME directory.
-   Ans = #!/bin/bash   
+   Ans = #!/bin/bash
  echo "My Shell: $SHELL"
  echo "My Name: $USER"
   echo "My Home: $HOME"
 
 Qu 2 - Write a shell script to display menu like “1. Date, 2. Cal, 3. Ls, 4. Pwd, 5. Exit” and
 execute the commands depending on user choice.
-Ans  - 
+Ans  -
 #!/bin/bash
 
 while true; do
@@ -41,6 +41,7 @@ while true; do
       ;;
   esac
   echo ""
+
 done
 
 
@@ -49,16 +50,16 @@ Qu 3 -  Write a shell script to accept the name from the user and check whether 
 name is file or directory. If name is file display its size and if it is directory display its
 contents.
 
-Ans = 
+Ans =
 
 Qu 4 - Write a shell script to determine whether a given number is prime or not
 
-Ans = 
+Ans =
 
 
 Qu 5 - Write a Program to find the greatest of three numbers
 
-Ans = 
+Ans =
    #!/bin/bash
  # Write a shell script to determine whether greatest number among three numbers
 
@@ -81,7 +82,7 @@ Ans =
 
 
  Qu 6 - Leap Year or NOT
- 
+
   #!/bin/bash
 
   echo "Welcome to Our Programme"
@@ -96,7 +97,7 @@ Ans =
 
 
 Qu 7 - Write a Program to find whether a given number is positive or negative
-   - #!/bin/bash 
+   - #!/bin/bash
 echo "Enter Number : "
 read num
 if [ $num -gt 0 ]
@@ -107,10 +108,10 @@ then
         echo "Number is Negative"
 else
         echo "Number is Zero"
-fi 
+fi
 
 Qu 8 - Print the table
- Ans = 
+ Ans =
     #!/bin/bash
  # Prints thet table of user entered number
  echo " Enter Number of Table you want to Print table"
@@ -118,12 +119,13 @@ Qu 8 - Print the table
  for((i=1; i<=10; i++))
  do
         res=`expr $num \* $i`
-        echo "$num * $i = $res" 
+        echo "$num * $i = $res"
  done
 ~
 
 Qu 9 -  Find Factorial of Number
-Ans = #!/bin/bash  
+Ans = #!/bin/bash
+
 echo "Enter the Number : "
 read num
 facto=1
@@ -159,7 +161,7 @@ done
 Qu 11 - . Write a program to calculate gross salary if the DA is 40%, HRA is 20% of basic salary.
 Accept basic salary form user and display gross salary (Result can be floating point
 value).
-Ans = 
+Ans =
 #!/bin/bash
 echo "Enter Your Salary : "
 read -p "Enter Your Salary Vroo : " salary
@@ -171,7 +173,86 @@ gross=$(echo "scale=2; $salary + $da + $hra" | bc)
 echo "$gross"
 
 
-  
 
 
+Qu 12
 
+#!/bin/bash
+
+# Check if filename argument is provided
+if [ -z "$1" ]; then
+  echo "Usage: $0 filename"
+  exit 1
+fi
+
+# Assign the filename to a variable
+FILENAME=$1
+
+# Check if the file exists
+if [ -e "$FILENAME" ]; then
+  # Display the last modification time
+  echo "The last modification time of $FILENAME is:"
+  stat -c %y "$FILENAME"
+else
+  # Display a suitable message if the file doesn't exist
+  echo "The file $FILENAME does not exist."
+fi
+
+
+Qu 13
+
+#!/bin/bash
+
+# Find and list all hidden files in the current directory
+echo "Hidden files in the current directory:"
+for file in .*; do
+  if [ -f "$file" ]; then
+    echo "$file"
+  fi
+done
+
+
+Qu 14
+
+#!/bin/bash
+
+# Display a message indicating the start of the list of executable files
+echo "Executable files in the current directory:"
+
+# Loop through all files in the current directory
+for file in *; do
+  # Check if the file is executable
+  if [ -f "$file" ] && [ -x "$file" ]; then
+    # Print the file name
+    echo "$file"
+  fi
+done
+
+Qu 15
+
+#!/bin/bash
+
+# Check if exactly two arguments are provided
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 source_file target_file"
+  exit 1
+fi
+
+# Assign arguments to variables
+SOURCE_FILE=$1
+TARGET_FILE=$2
+
+# Check if the source file exists
+if [ ! -f "$SOURCE_FILE" ]; then
+  echo "The source file $SOURCE_FILE does not exist."
+  exit 1
+fi
+
+# Read the content of the source file and change case
+REVERSED_CASE_CONTENT=$(cat "$SOURCE_FILE" | tr 'a-zA-Z' 'A-Za-z')
+
+# Append the reversed case content to the target file
+echo "$REVERSED_CASE_CONTENT" >> "$TARGET_FILE"
+
+# Print a success message
+echo "Content from $SOURCE_FILE has been appended to $TARGET_FILE with reversed case."
