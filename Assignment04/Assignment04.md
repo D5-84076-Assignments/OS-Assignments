@@ -16,7 +16,7 @@ i)count the no. of words ,characters and lines from above 2 file.(man wc)
     6  25 145 data
 
 ii)list the lines having word "files" (man grep)
- - **ls | grep "files" data**
+ - **ls | grep "files" data.txt**
   _Output_
   files have permissions.
 files have inode no.

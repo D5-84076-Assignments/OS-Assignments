@@ -256,3 +256,27 @@ echo "$REVERSED_CASE_CONTENT" >> "$TARGET_FILE"
 
 # Print a success message
 echo "Content from $SOURCE_FILE has been appended to $TARGET_FILE with reversed case."
+
+
+Qu 16
+#!/bin/bash
+
+# Welcome message
+USER_NAME=$(whoami)
+echo "Welcome back, $USER_NAME!"
+
+# Display directory contents (excluding hidden files)
+ls -l ~ | grep -v '^d'
+
+Qu 17
+#!/bin/bash
+
+# Define the number of rows (adjust as needed)
+rows=5
+
+for (( i=1; i<=$rows; i++ )); do
+  printf "%*s\n" "$(( i - 1 ))" "*"  
+done
+
+
+

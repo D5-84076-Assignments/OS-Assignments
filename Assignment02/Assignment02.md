@@ -1,7 +1,7 @@
 ## Assignment 02
 
 #### 1. List the directory contents date wise sorted. ( man ls)
-- ls -l | sort
+- ls -ltr
 
 
 #### 2 - List the directory contents size wise sorted.(man ls)
